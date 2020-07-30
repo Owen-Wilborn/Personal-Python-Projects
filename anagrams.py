@@ -1,5 +1,5 @@
 # Owen Wilborn
-# anagrams.py
+# WordPermutations.py
 
 #Finds all direct anagrams of input words compared to a file words.txt imported, solved problem two ways, first by permutation method, second
 #second by alphabetical ordering. The main is used to test the two methods to compare.
@@ -9,8 +9,8 @@
 #findAnagram1
 def findAnagram1(word, dict, results):
 	"""
-	This function returns all the number of all possilbe Permutations of the input word
-	and prints the permutations to the screen
+	This function finds all the number of all possible permutations of the input word
+	and prints the permutations that are anagrams to the screen
 	"""
 	swapOne = 0
 	swapTwo = 0
@@ -61,10 +61,13 @@ def wordInDict(word, dict):
 ############## Option 2 - Based on alpha ordering of each word's characters ##############
 #findAnagram2
 def findAnagram2(word, dict, results):
+	"""
+	This function finds all the direct anagrams and returns the direct anagrams in the results list
+	"""
 	#First remove all words of bad size
 	midDict = []
 	setDict(dict, midDict, len(word))
-	#Next rearrange all characters in each word in the new dict to be in alphabetical order
+	#Next rearrange all characters in each word in the new dictionary to be in alphabetical order
 	newDict = []
 	alphaDict(midDict, newDict)
 	#Place input word characters in alphabetical order
@@ -128,7 +131,7 @@ def viewArray(list):
 #setDict
 def setDict(dict, wordDict, wordSize):
 	"""
-	Creates a new dict with only the words of matching 
+	Creates a new dictionary with only the words of matching 
 	size from the old dictionary, returns the size of the new dictionary
 	"""
 	size = 0
@@ -140,7 +143,7 @@ def setDict(dict, wordDict, wordSize):
 
 ##################  Main   ##################
 
-#######  Open dict txt file  ########
+#######  Open dictionary text file  ########
 dict = []
 # open file and read the content in a list
 with open('words.txt', 'r') as filehandle:
@@ -148,7 +151,7 @@ with open('words.txt', 'r') as filehandle:
 	i=1
 	for line in filecontents:
 		if len(filecontents) != i:
-			# remove linebreak which is the last character of the string
+			# remove line break which is the last character of the string
 			current_place = line[:-1]
 		else:
 			current_place = line
@@ -183,7 +186,7 @@ print("The number of anagrams is", count2, "The anagrams are list below")
 viewArray(results)
 print()
 
-#Test to options aganist each other
+#Test to options against each other
 if count1 == count2:
 	print("****Good****")
 else:
