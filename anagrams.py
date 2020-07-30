@@ -1,5 +1,5 @@
 # Owen Wilborn
-# WordPermutations.py
+# anagrams.py
 
 #Finds all direct anagrams of input words compared to a file words.txt imported, solved problem two ways, first by permutation method, second
 #second by alphabetical ordering. The main is used to test the two methods to compare.
